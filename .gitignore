@@ -2,4 +2,6 @@
 *.log
 .vscode
 .env
-
+*.retry
+djangosecretkey
+postgresqlpasswd

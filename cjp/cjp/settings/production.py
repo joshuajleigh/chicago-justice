@@ -5,8 +5,7 @@
 from .base import *
 
 ALLOWED_HOSTS = [
-    'ec2-54-88-218-235.compute-1.amazonaws.com',
-    'data.chicagojustice.org',
+    '174.138.85.36',
 ]
 
 CJP_ROOT = "/"
@@ -36,10 +35,10 @@ STATIC_URL = '/'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'cjpweb_prd',
+        'NAME': 'cjpwebdb',
         'USER': 'cjpuser',
-        'PASSWORD': 'cjpuser',
-        'HOST': 'chicagojustice.cbeugrz1koxf.us-east-1.rds.amazonaws.com',
+        'PASSWORD': '2,adbFVwZ2ihADt:tKvd',
+        'HOST': 'localhost',
         'PORT': '',
     }
 }

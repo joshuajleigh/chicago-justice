@@ -1,0 +1,13 @@
+---
+repo_url: ssh://git@github.com/mchladek
+repo: chicago-justice
+repo_branch: ansible
+home_dir: /home/ubuntu
+repo_dir: "{{ home_dir }}/{{ repo }}"
+django_dir: "{{ repo_dir }}/cjp"
+static_dir: "{{ home_dir }}/static"
+django_project: cjp
+secret_key: "{{ lookup('password', 'djangosecretkey length=50') }}"
+dbname: cjpwebdb
+dbuser: cjpuser
+dbpassword: "{{ lookup('password', 'postgresqlpasswd') }}"
