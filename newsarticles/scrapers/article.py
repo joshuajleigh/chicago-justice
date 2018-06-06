@@ -67,6 +67,7 @@ class ArticleScraper(object):
 
         self.title_selector = config.get('title_selector', None)
         self.body_selector = config.get('body_selector', None)
+        self.body_selector_index = config.get('body_selector_index', None)
         self.author_selector = config.get('author_selector', None)
         self.exclude_selector = config.get('exclude_selector', None)
 
@@ -249,15 +250,19 @@ class ArticleScraper(object):
     def extract_body(self, soup):
         if not self.body_selector:
             raise ScraperException('No body selector!')
+        if not self.body_selector_index:
+            selector_index = 0
+        else:
+            selector_index = self.body_selector_index
 
         results = soup.select(self.body_selector)
         if len(results) < 1:
             raise ScraperException("Can't find article body '{}'".format(self.body_selector))
         elif len(results) > 1:
-            LOG.debug('Multiple article bodies (%d) found for selector: %s. Taking first.',
-                      len(results), self.body_selector)
+            LOG.debug('Multiple article bodies (%d) found for selector: %s. Taking instance %d.',
+                      len(results), self.body_selector, selector_index)
 
-        body_html = results[0]
+        body_html = results[selector_index]
         if self.exclude_selector:
             remove_elements = body_html.select(self.exclude_selector)
             for element in remove_elements:

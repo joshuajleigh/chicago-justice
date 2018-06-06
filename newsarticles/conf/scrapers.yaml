@@ -10,7 +10,15 @@
 # title_selector: CSS selector for the title of the article. Default is the <title> tag
 # author_selector: CSS selector for the article author. Optional
 # body_selector: CSS selector for the article text
+# body_selector_index: Index for the article text in case CSS selector is used multiple times. Optional (defaults to 0, i.e., the first instance)
 # body_exclude_selector: CSS selector for elements to remove from the body.
+
+- news_source: chicago-city-wire
+  index_url: https://chicagocitywire.com/stories.rss
+  rss_index: True
+  title_selector: .news-featured-cont h2
+  body_selector: .news-featured-cont
+  body_selector_index: 1
 
 - news_source: cwb-chicago
   index_url: http://www.cwbchicago.com/feeds/posts/default
